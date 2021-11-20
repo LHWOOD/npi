@@ -4,7 +4,8 @@ const button = document.querySelector("#btn");
 
 button.addEventListener("click", function () {
   fetch(
-    "https://www.alphavantage.co/query?function=GLOBAL_QUOTE&symbol=IBM&apikey=DU7T0IAOA31JGVC6",
+    // "https://www.alphavantage.co/query?function=GLOBAL_QUOTE&symbol=IBM&apikey=DU7T0IAOA31JGVC6",
+    "https://deckofcardsapi.com/api/deck/new/draw/?count=1",
     {
       headers: {
         Accept: "application/json",
@@ -16,6 +17,14 @@ button.addEventListener("click", function () {
     })
     .then(function (data) {
       console.log(data);
+
+      let card = document.createElement("p");
+
+      // card.setAttribute("src", `${data.cards}`);
+      card.textContent = data.cards[(1)[0]];
+      card.setAttribute("style", "color:white");
+
+      room.appendChild(card);
     });
 });
 
