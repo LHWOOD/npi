@@ -22,7 +22,7 @@ button.addEventListener("click", function () {
 
       // card.setAttribute("src", `${data.cards}`);
       card.textContent = data.cards[(1)[0]];
-      card.setAttribute("style", "color:red");
+      card.setAttribute("style", "color:brown");
 
       room.appendChild(card);
     });
