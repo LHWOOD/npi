@@ -2,6 +2,8 @@ const room = document.querySelector("#fish");
 
 const button = document.querySelector("#btn");
 
+let secondsLeft = 5;
+
 // const one = "1";
 // const two = "2";
 // const three = "3";
@@ -33,7 +35,7 @@ button.addEventListener("click", function () {
     .then(function (data) {
       console.log(data);
 
-      // button.setAttribute("style", "display: none");
+      button.setAttribute("style", "display: none");
 
       let card1 = document.createElement("img");
       let card2 = document.createElement("img");
@@ -42,14 +44,13 @@ button.addEventListener("click", function () {
       let test2 = data.cards[1].image;
 
       card1.setAttribute("src", test1);
-
-      let cardValue1 = data.cards[0].value;
-      let cardValue2 = data.cards[1].value;
-
       card2.setAttribute("src", test2);
 
       room.appendChild(card1);
       room.appendChild(card2);
+
+      let cardValue1 = data.cards[0].value;
+      let cardValue2 = data.cards[1].value;
 
       if (cardValue1 > cardValue2) {
         let winner = document.createElement("h1");
@@ -64,7 +65,20 @@ button.addEventListener("click", function () {
         tie.textContent = "You Tied!";
         room.appendChild(tie);
       }
+      timer();
     });
 });
+
+function timer() {
+  // Sets interval in variable
+  let timerInterval = setInterval(function () {
+    secondsLeft--;
+
+    if (secondsLeft === 0) {
+      // clearInterval(timerInterval);
+      location.reload();
+    }
+  }, 1000); //1000 represents miliseconds = 1 second
+}
 
 //DU7T0IAOA31JGVC6
