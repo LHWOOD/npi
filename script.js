@@ -18,10 +18,11 @@ button.addEventListener("click", function () {
     .then(function (data) {
       console.log(data);
 
-      let card = document.createElement("p");
+      let card = document.createElement("img");
 
       // card.setAttribute("src", `${data.cards}`);
-      card.textContent = data.cards[(1)[0]];
+      let test = data.cards[0].image;
+      card.setAttribute("src", test);
       card.setAttribute("style", "color:brown");
 
       room.appendChild(card);
