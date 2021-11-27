@@ -1,4 +1,4 @@
-const room = document.querySelector("#fish");
+const room = document.querySelector("#area");
 
 const button = document.querySelector("#btn");
 
